@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from news.models import Story, Category
 from news.serializers import StorySerializer, CategorySerializer
 from news.get_data_from_api import execute
+from news.send_email import send_email
+import time
 
 from django.shortcuts import redirect
 
@@ -20,6 +22,8 @@ def stories_from_category(request, category_name):
 @api_view(['GET'])
 def story_details(request, category_name, story_id):
     if request.method == 'GET':
+        print(story_id)
+        print(category_name)
         story = Story.objects.filter(category_name='%s' % category_name, id=story_id)
         serializer = StorySerializer(story, many=True)
         return Response(serializer.data)
@@ -28,6 +32,10 @@ def story_details(request, category_name, story_id):
 
 
 def get_data(request):
-    execute()
-    return redirect('/')
+    time_before_request = time.time()
 
+    new_stories_count = execute()
+    spent_time = time.time() - time_before_request
+
+    send_email(new_stories_count, spent_time)
+    return redirect('/')
