@@ -8,7 +8,7 @@ def send_email(new_stories_count, spent_time):
     # me == my email address
     # you == recipient's email address
     me = "zender991@gmail.com"
-    you = "zender991@gmail.com"
+    you = "yanutaoleg@gmail.com"
 
     LOGIN = "zender991@gmail.com"
     PASSWORD = "Punkrock"
