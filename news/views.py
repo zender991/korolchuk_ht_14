@@ -5,6 +5,7 @@ from news.models import Story, Category
 from news.serializers import StorySerializer, CategorySerializer
 from news.get_data_from_api import execute
 from news.send_email import send_email
+from django.shortcuts import render
 import time
 
 from django.shortcuts import redirect
@@ -39,3 +40,7 @@ def get_data(request):
 
     send_email(new_stories_count, spent_time)
     return redirect('/')
+
+
+def index(request):
+    return render(request, 'news/index.html')

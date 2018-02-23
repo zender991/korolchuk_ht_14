@@ -6,4 +6,5 @@ urlpatterns = [
     path('execute/', views.get_data),
     path('<str:category_name>/<int:story_id>/', views.story_details),
     path('<str:category_name>/', views.stories_from_category),
+    path('', views.index)
 ]

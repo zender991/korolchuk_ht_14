@@ -42,7 +42,7 @@ class Stories(object):
     def get_stories(self, story_title, insert_query, category_id):
         id_list = Stories.get_story_ids(story_title)
         story_count = 0
-        for i in id_list[:1]:
+        for i in id_list[:3]:
             current_story = Stories.get_story_details(i)
 
             var_db = Stories.write_to_var_from_response(current_story)
