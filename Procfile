@@ -1,1 +1,1 @@
-web: gunicorn
+web: gunicorn HT_14.wsgi --log-file -
