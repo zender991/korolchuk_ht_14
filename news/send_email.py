@@ -2,6 +2,7 @@ import smtplib
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from news.credentials import login,password
 
 
 def send_email(new_stories_count, spent_time):
@@ -10,8 +11,8 @@ def send_email(new_stories_count, spent_time):
     me = "zender991@gmail.com"
     you = "yanutaoleg@gmail.com"
 
-    LOGIN = "zender991@gmail.com"
-    PASSWORD = "Punkrock"
+    LOGIN = login
+    PASSWORD = password
 
     # Create message container - the correct MIME type is multipart/alternative.
     msg = MIMEMultipart('alternative')
