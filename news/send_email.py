@@ -15,7 +15,7 @@ def send_email(new_stories_count, spent_time):
 
     # Create message container - the correct MIME type is multipart/alternative.
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = "Link"
+    msg['Subject'] = "Hometask - Korolchuk"
     msg['From'] = me
     msg['To'] = you
 
